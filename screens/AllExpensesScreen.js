@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 
-const ManageExpenseScreen = props => {
+const AllExpensesScreen = props => {
     return(
-        <View style={styles.container}>
+        <View style={styles.container}>  
             <Text>All Expenses Screen</Text>
         </View>
     );
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ManageExpenseScreen;
+export default AllExpensesScreen;

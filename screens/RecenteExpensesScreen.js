@@ -2,7 +2,9 @@ import { View, Text, StyleSheet } from "react-native";
 
 const RecenteExpensesScreen = props => {
     return(
-        <View style={styles.container}></View>
+        <View style={styles.container}>
+            <Text>Recente Expenses Screen</Text>
+        </View>
     );
 };
 
