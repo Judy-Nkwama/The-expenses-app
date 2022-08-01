@@ -1,18 +1,15 @@
 import { View, Text, StyleSheet } from "react-native";
+import { DUMMY_EXPENSES } from "../data/DUMMY_EXPENSES";
+import ExpensesOverView from "../components/ui/Expenses/ExpensesOverView";
 
 const AllExpensesScreen = props => {
     return(
-        <View style={styles.container}>  
-            <Text>All Expenses Screen</Text>
-        </View>
+        <ExpensesOverView expenses={DUMMY_EXPENSES} periodName="All Expenses" />
     );
 };
 
 const styles = StyleSheet.create({
     container : {
-        flex : 1,
-        justifyContent : "center",
-        alignItems : "center"
     }
 });
 
