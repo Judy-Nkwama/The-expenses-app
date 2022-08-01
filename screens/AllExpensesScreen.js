@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import { DUMMY_EXPENSES } from "../data/DUMMY_EXPENSES";
-import ExpensesOverView from "../components/ui/Expenses/ExpensesOverView";
+import ExpensesOverView from "../components/Expenses/ExpensesOverView";
 
 const AllExpensesScreen = props => {
     return(

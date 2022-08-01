@@ -10,7 +10,6 @@ const ExpensesList = ({expenses}) => {
         />;
     };
 
-
     return(
         <FlatList 
             data={expenses}

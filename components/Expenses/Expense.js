@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import { GlobalStyles } from "../../../constants/style";
-import { formatDate } from "../../../utilities/dateFormater";
+import { GlobalStyles } from "../../constants/style";
+import { formatDate } from "../../utilities/dateFormater";
 
 const Expense = ({description, amount, date}) => {
     return(
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     },
     amountBk : {
         backgroundColor : GlobalStyles.colors.primaryLight,
-        padding : 12,
+        padding : 8,
         borderRadius : 4,
         justifyContent : "center",
         alignItems : "center"
