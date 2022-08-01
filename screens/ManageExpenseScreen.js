@@ -1,21 +1,38 @@
-import { View, Text, StyleSheet } from "react-native";
+import { useContext } from "react";
+import { ExpensesContext } from "../data/store";
+import { View, StyleSheet } from "react-native";
 import { GlobalStyles } from "../constants/style";
 import IconButton from "../components/ui/IconButton";
 import Button from "../components/ui/Button";
 
 const ManageExpensesScreen = ({ navigation, route }) => {
-
+    const expensesCtx = useContext(ExpensesContext);
     const isEditMode = !!route.params?.expenseId;
+    const expenseId = route.params?.expenseId;
 
     const closeModal = () =>{
         navigation.goBack();
     };
 
     const handleAddExpense = () => { 
+        if(isEditMode){
+            expensesCtx.updateExpense(expenseId, {
+                amount : 19.90,
+                description : "Text value Update",
+                date : new Date("2022-07-09")
+            });
+        }else{
+            expensesCtx.addExpense({
+                amount : 19.90,
+                description : "Text value New",
+                date : new Date("2022-03-08")
+            })
+        }
         closeModal();
     };
 
     const handleDelete = expenseId => {
+        expensesCtx.deleteExpense(expenseId);
         closeModal();
     };
 
@@ -31,7 +48,7 @@ const ManageExpensesScreen = ({ navigation, route }) => {
                         iconName="trash"
                         color={GlobalStyles.colors.danger}
                         size={36}
-                        onPress={handleDelete}
+                        onPress={handleDelete.bind(this, expenseId)}
                     />
                 </View>
             }
