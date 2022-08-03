@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { ExpensesContext } from "../data/store";
+import { ExpensesContext } from "../data/local/store";
 import { View, StyleSheet, KeyboardAvoidingView, ScrollView} from "react-native";
 import { GlobalStyles } from "../constants/style";
 import IconButton from "../components/ui/IconButton";
 import ExpenseForm from "../components/Expenses/ManageExpenses/ExpenseForm";
+import { postExpense } from "../data/http/http";
 
 const ManageExpensesScreen = ({ navigation, route }) => {
     const expensesCtx = useContext(ExpensesContext);
@@ -19,6 +20,7 @@ const ManageExpensesScreen = ({ navigation, route }) => {
             expensesCtx.updateExpense(expenseId, expense);
         } else {
             expensesCtx.addExpense(expense);
+            postExpense(expense);
         }
         closeModal();
     };

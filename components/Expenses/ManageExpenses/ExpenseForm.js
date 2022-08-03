@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { ExpensesContext } from "../../../data/store";
+import { ExpensesContext } from "../../../data/local/store";
 import { View, Text, StyleSheet, Alert } from "react-native";
 import Input from "./Input";
 import Button from "../../ui/Button";

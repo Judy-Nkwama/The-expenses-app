@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { GlobalStyles } from "./constants/style";
 import { Ionicons } from "@expo/vector-icons";
-import ExpenseContextProvider from "./data/store";
+import ExpenseContextProvider from "./data/local/store";
 import IconButton from "./components/ui/IconButton";
 import AllExpensesScreen from "./screens/AllExpensesScreen";
 import ManageExpenseScreen from "./screens/ManageExpenseScreen";

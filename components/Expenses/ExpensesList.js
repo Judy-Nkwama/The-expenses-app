@@ -1,4 +1,4 @@
-import { Text, StyleSheet, FlatList} from "react-native";
+import { StyleSheet, FlatList} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Expense from "./Expense";
 

@@ -7,9 +7,9 @@ const Input = ({ label, isValid, inputConfiguration }) => {
     if (inputConfiguration && inputConfiguration.multiline) inputStyle.push(styles.multiline);
     return (
         <View style={styles.container} >
-            <Text style={[styles.label, !isValid && styles.inValidLabel]}>{label}</Text>
+            <Text style={[styles.label, !inputConfiguration.isValid && styles.inValidLabel]}>{label}</Text>
             <KeyboardAvoidingView behavior="position">
-                <TextInput style={[inputStyle, !isValid && styles.inValidInput]} {...inputConfiguration} />
+                <TextInput style={[inputStyle, !inputConfiguration.isValid && styles.inValidInput]} {...inputConfiguration} />
             </KeyboardAvoidingView>
         </View>
     );
