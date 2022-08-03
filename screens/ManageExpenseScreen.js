@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { ExpensesContext } from "../data/local/store";
-import { View, StyleSheet, KeyboardAvoidingView, ScrollView} from "react-native";
+import { View, StyleSheet, KeyboardAvoidingView, ScrollView, Alert} from "react-native";
 import { GlobalStyles } from "../constants/style";
 import IconButton from "../components/ui/IconButton";
 import ExpenseForm from "../components/Expenses/ManageExpenses/ExpenseForm";
-import { postExpense } from "../data/http/http";
+import { deleteExpense, postExpense, updateExpenseDb } from "../data/http/http";
 
 const ManageExpensesScreen = ({ navigation, route }) => {
     const expensesCtx = useContext(ExpensesContext);
@@ -15,17 +15,24 @@ const ManageExpensesScreen = ({ navigation, route }) => {
         navigation.goBack();
     };
 
-    const handleAddExpense = (expense) => {
+    const handleAddExpense = async (expense) => {
         if (isEditMode) {
+            await updateExpenseDb(expenseId, expense)
             expensesCtx.updateExpense(expenseId, expense);
         } else {
-            expensesCtx.addExpense(expense);
-            postExpense(expense);
+            let insertedId;
+            try{
+                insertedId = await postExpense(expense);
+                expensesCtx.addExpense({...expense, id : insertedId});
+            }catch(exeption){
+                Alert.alert("Error!","An error occured please try again", [{text : "Okay", style : "cancel"}])
+            }
         }
         closeModal();
     };
 
-    const handleDelete = expenseId => {
+    const handleDelete = async (expenseId) => {
+        await deleteExpense(expenseId);
         expensesCtx.deleteExpense(expenseId);
         closeModal();
     };

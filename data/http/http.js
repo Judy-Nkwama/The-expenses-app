@@ -2,8 +2,13 @@ const axios = require("axios").default;
 
 const baseURL = "https://first-project-7f43c-default-rtdb.firebaseio.com";
 
-export const postExpense = (expenseData) => {
-    axios.post(`${baseURL}/expenses.json`, expenseData);
+export const postExpense = async (expenseData) => {
+    try{
+        const respose = await axios.post(`${baseURL}/expenses.json`, expenseData);
+        return respose.data.name;
+    }catch( exeption ){
+        throw( new Error(exeption.message));
+    }
 };
 
 export const fetchExpense = async () => {
@@ -28,4 +33,12 @@ export const fetchExpense = async () => {
     }
     
     return expenses;
+};
+
+export const updateExpenseDb = async (expenseId, expenseObject) => {
+    return await axios.put(`${baseURL}/expenses/${expenseId}.json`, expenseObject);
+};
+
+export const deleteExpense = async (expenseId) => {
+    return await axios.delete(`${baseURL}/expenses/${expenseId}.json`);
 };
