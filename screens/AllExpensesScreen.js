@@ -10,6 +10,7 @@ const AllExpensesScreen = props => {
 
 const styles = StyleSheet.create({
     container : {
+        
     }
 });
 
