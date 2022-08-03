@@ -1,10 +1,13 @@
-import { View, Text, StyleSheet } from "react-native";
-import { DUMMY_EXPENSES } from "../data/DUMMY_EXPENSES";
+import { useContext } from "react";
+import { ExpensesContext } from "../data/store";
+import { StyleSheet } from "react-native";
 import ExpensesOverView from "../components/Expenses/ExpensesOverView";
 
 const AllExpensesScreen = props => {
+    const expensesCtx = useContext(ExpensesContext);
+
     return(
-        <ExpensesOverView expenses={DUMMY_EXPENSES} periodName="All Expenses" />
+        <ExpensesOverView expenses={expensesCtx.expenses} periodName="All Expenses" />
     );
 };
 
