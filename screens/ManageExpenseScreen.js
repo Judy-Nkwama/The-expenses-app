@@ -4,6 +4,7 @@ import { View, StyleSheet } from "react-native";
 import { GlobalStyles } from "../constants/style";
 import IconButton from "../components/ui/IconButton";
 import Button from "../components/ui/Button";
+import ExpenseForm from "../components/Expenses/ManageExpenses/ExpenseForm";
 
 const ManageExpensesScreen = ({ navigation, route }) => {
     const expensesCtx = useContext(ExpensesContext);
@@ -38,6 +39,7 @@ const ManageExpensesScreen = ({ navigation, route }) => {
 
     return(
         <View style={styles.container}>
+            <ExpenseForm />
             <View style={styles.DelAddBttsBk}>
                 <Button title="Cancel" style="cancel" onPress={closeModal}/>
                 <Button title="Save" style="confirm" onPress={handleAddExpense}/>
