@@ -77,10 +77,13 @@ const App = () => {
 							name="ManageExpence"
 							component={ManageExpenseScreen}
 							options={({ route }) => ({
-								title: route.params?.expenseId ? `Edit Expense: ${route.params.expenseId}` : "New Expense",
+								title: route.params?.expenseId ? `Edit Expense` : "New Expense",
 								headerStyle: { backgroundColor: GlobalStyles.colors.dark300 },
 								headerTintColor: GlobalStyles.colors.gray,
-								presentation: "modal"
+								presentation: "modal",
+								contentStyle : {
+									backgroundColor : GlobalStyles.colors.secondary
+								}
 							})
 
 							}

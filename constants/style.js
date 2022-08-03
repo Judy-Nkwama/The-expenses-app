@@ -11,6 +11,7 @@ export const GlobalStyles = {
         ternary : "#e2bb50",
         ternaryLight : "rgb(255, 136, 0)",
         ccc : "#ccc",
-        gray : "#e8e6e3"
+        gray : "#e8e6e3",
+        danger30 : "#fcd3df"
     }
 };
